@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const recipeDetails= require('../database/recipedetails');
+const recipeDetails= require('../database/recipeDetails');
 
 /* GET home page. */
 router.get('/:id', async function(req, res, next) {
