@@ -13,6 +13,14 @@ const recipeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    },
+    expanded: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "recipe_detail",
+    },
   },
   {
     timestamps: true,
