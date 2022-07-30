@@ -20,7 +20,17 @@ router.post('/', async function(req, res, next) {
         const data = await recipe.save()
         res.status(200).json(data);
     } catch (error) {
-       res.status(400).json({  stauts: "Error", message: "Error", ...error});;
+        res.status(400).json({  stauts: "Error", message: "Error", ...error});;
+    }
+})
+
+// recipe searches 
+router.post('/search', async function(req, res, next) {
+    try {
+        const data = await Recipe.find({ $text: { $search: `\"${req.body.search}\"` } });
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(400).json({  stauts: "Error", message: "Error", ...error});;
     }
 })
 
@@ -43,5 +53,8 @@ router.delete('/:id', async function(req, res, next) {
          res.status(400).json({  stauts: "Error", message: "Error", ...error});;
     }
 })
+
+
+
 
 module.exports = router;
