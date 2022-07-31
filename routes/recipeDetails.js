@@ -30,7 +30,7 @@ router.post("/", upload.single("images"), async function (req, res, next) {
   try {
     // const data = await recipe.save()
     // upload.array('photos')
-    res.status(200).json({});
+    res.status(200).json({...req?.file});
   } catch (error) {
     res.status(500).json(error);
   }
