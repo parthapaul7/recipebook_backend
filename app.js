@@ -7,6 +7,7 @@ const usersRouter = require('./routes/users');
 require("./database/connectDb");
 const app = express();
 
+
 // view engine setup
 
 app.use(express.json());
