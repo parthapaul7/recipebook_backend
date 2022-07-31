@@ -26,11 +26,12 @@ router.post("/", async function (req, res, next) {
   }
 });
 
+// file upload setup
 const storage = multer.diskStorage({
   destination:"uploads",
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now()
-    cb(null, file.fieldname + '-' + uniqueSuffix+file.originalname)
+    cb(null, file.fieldname + '-' + uniqueSuffix+(file.originalname).replace(/\s/g, ""))
   }
 })
 
