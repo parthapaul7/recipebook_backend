@@ -26,7 +26,8 @@ router.post("/", async function (req, res, next) {
   }
 });
 
-// file upload setup
+
+// image upload setup
 const storage = multer.diskStorage({
   destination:"uploads",
   filename: function (req, file, cb) {
@@ -38,11 +39,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.post("/upload_img", upload.single("images"), async function (req, res, next) {
-  // const recipe = new recipeDetails(req.body);
-  // const image = baseImgUrl+req?.file?.filename;
   try {
-    // const data = await recipe.save()
-    // upload.array('photos')
     res.status(200).json({image:baseImgUrl+req?.file?.filename});
   } catch (error) {
     res.status(500).json(error);
