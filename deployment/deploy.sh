@@ -1,5 +1,3 @@
 # !/bin/bash
 
-git pull
-yarn
-yarn start
+node ./bin/www
